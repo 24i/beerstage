@@ -1,0 +1,15 @@
+{
+    "source": "src/index.html",
+    "scripts": {
+        "start": "parcel",
+        "build": "parcel build"
+    },
+    "devDependencies": {
+        "@tailwindcss/forms": "^0.5.1",
+        "parcel": "^2.5.0",
+        "postcss": "^8.4.13",
+        "react": "^18.1.0",
+        "react-dom": "^18.1.0",
+        "tailwindcss": "^3.0.24"
+    }
+}
