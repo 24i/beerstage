@@ -6,6 +6,16 @@ module.exports = {
         extend: {},
     },
     plugins: [
-        require('@tailwindcss/forms')
+        require('daisyui')
     ],
+
+    daisyui: {
+        themes: [
+            {
+                custom: {
+                    primary: '#fbbc0a'
+                }
+            }
+        ]
+    }
 }

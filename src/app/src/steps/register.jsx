@@ -36,12 +36,12 @@ export default ({
 
             <div className='mb-8'>
                 <label className='block w-full font-bold text-xl text-white pb-2'>Alcoholic</label>
-                <button className={`${alcoholic ? 'bg-yellow-500': 'bg-gray-600 text-white/25'} p-4 rounded-l-full`} onClick={() => setAlcoholic(true)}>Alcoholic</button>
-                <button className={`${!alcoholic ? 'bg-yellow-500': 'bg-gray-600 text-white/25'} p-4 rounded-r-full`} onClick={() => setAlcoholic(false)}>Non-Alcoholic</button>
+                <button className={`btn ${alcoholic ? 'btn-primary': 'btn-ghost border border-primary hover:border-primary'} p-4 rounded-l-full`} onClick={() => setAlcoholic(true)}>Alcoholic</button>
+                <button className={`btn ${!alcoholic ? 'btn-primary': 'btn-ghost border border-primary hover:border-primary'} p-4 rounded-r-full`} onClick={() => setAlcoholic(false)}>Non-Alcoholic</button>
             </div>
 
             <div>
-                <button className='bg-yellow-500 p-4 rounded-full px-8' onClick={onNext}>Next</button>
+            <button className='btn btn-primary btn-block rounded-full' onClick={onNext}>Next</button>
             </div>
 
         </div>

@@ -6,6 +6,8 @@
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.5.1",
+        "colortranslator": "^1.9.2",
+        "daisyui": "^2.15.0",
         "parcel": "^2.5.0",
         "postcss": "^8.4.13",
         "react": "^18.1.0",

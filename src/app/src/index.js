@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
+import Appearance from './steps/appearance';
 
 import Register from './steps/register';
 import { get, set} from './utils/storage';
@@ -16,6 +17,7 @@ const App = () => {
         <div className='container mx-auto py-4'>
 
             <Register value={registerValues} onNextStep={onCompletedRegister} />
+            <Appearance />
 
         </div>
     );
