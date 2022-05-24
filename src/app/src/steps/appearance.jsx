@@ -37,6 +37,7 @@ export default ({
 
             <div className='mb-4'>
                 <label className='block w-full text-md text-white pb-2'>Clarity:</label>
+                <label className='label px-0'><span className='label-text-alt text-white/50'>Can you see through the beer?</span></label>
                 <div className='w-full grid grid-cols-3 text-xs text-white/50 mb-1'>
                     <div>Brilliant</div>
                     <div className='text-center'>Dull</div>
@@ -47,6 +48,7 @@ export default ({
 
             <div className='mb-8'>
                 <label className='block w-full text-md text-white pb-2'>Head retention:</label>
+                <label className='label px-0'><span className='label-text-alt text-white/50'>How well does the head (foam) linger?</span></label>
                 <div className='w-full grid grid-cols-3 text-xs text-white/50 mb-1'>
                     <div>Poor</div>
                     <div className='text-center'>Good</div>

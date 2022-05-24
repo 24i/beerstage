@@ -58,6 +58,7 @@ export default ({
 
             <div className='mb-4'>
                 <label className='block w-full text-md text-white pb-2'>Impression:</label>
+                <label className='label px-0'><span className='label-text-alt text-white/50'>How nice is the taste? Off means something smells wrong with the beer.</span></label>
                 <div className='w-full grid grid-cols-3 text-xs text-white/50 mb-1'>
                     <div>Off</div>
                     <div className='text-center'>Neutral</div>
@@ -69,6 +70,7 @@ export default ({
 
             <div className='mb-8'>
                 <label className='block w-full text-md text-white pb-2'>Which flavours do you taste:</label>
+                <label className='label px-0'><span className='label-text-alt text-white/50'>For example: fruit, spice, ginger (press return to enter more than one).</span></label>
                 <input className='input w-full bg-secondary rounded-full' type="text" onKeyDown={onFlavoursKeyDown} />
                 <div className='mt-4'>
                     {flavours.map(flavour => <div className='badge badge-primary p-4 mr-2' key={flavour}>{flavour} <Close onClick={() => onRemoveFlavour(flavour)} /></div>)}

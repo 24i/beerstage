@@ -62,6 +62,7 @@ export default ({
 
             <div className='mb-8'>
                 <label className='block w-full text-md text-white pb-2'>Which sensations do you feel:</label>
+                <label className='label px-0'><span className='label-text-alt text-white/50'>For example: creamy, crisp, warming (press return to enter more than one).</span></label>
                 <input className='input w-full bg-secondary rounded-full' type="text" onKeyDown={onSensationsKeyDown} />
                 <div className='mt-4'>
                     {sensations.map(sensation => <div className='badge badge-primary p-4 mr-2' key={sensation}>{sensation} <Close onClick={() => onRemoveSensation(sensation)} /></div>)}

@@ -34,7 +34,7 @@ export default ({
 
             <div className='mb-4'>
                 <label className='block w-full font-bold text-xl text-white'>Email:</label>
-                <label className='label'><span className='label-text-alt text-white/50'>Optional, but we can send you your results afterwards.</span></label>
+                <label className='label px-0'><span className='label-text-alt text-white/50'>Optional, but we can send you your results afterwards.</span></label>
                 <input value={email} className='input w-full bg-secondary rounded-full input-lg' type="email" onChange={e => setEmail(e.target.email)} />
             </div>
 

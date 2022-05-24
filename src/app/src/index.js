@@ -8,10 +8,12 @@ import Aroma from './steps/aroma';
 import Flavour from './steps/flavour';
 import Mouthfeel from './steps/mouthfeel';
 import Finished from './steps/finished';
+import NewBeer from './steps/new-beer';
 
 import { get, set} from './utils/storage';
 
 const beers = ['wit', 'trappist', 'ipa/tripel'];
+const getNth = (nth) => ['first', 'second', 'third'][nth];
 
 const App = () => {
 
@@ -47,7 +49,7 @@ const App = () => {
     }
 
     // We're on the finish page, send all data to the API
-    if (activeStep === 13) {
+    if (activeStep === 16) {
         fetch('http://localhost:8000/api/data', {
             method: 'POST',
             headers: {
@@ -72,15 +74,16 @@ const App = () => {
 
                 return (
                     <div key={beer}>
-                        <Appearance value={beerValues[activeIndex]['appearance']} onPreviousStep={onPreviousStep} onNextStep={onCompletedStep(beer, 'appearance')} visible={idx === (activeIndex * 4)} />
-                        <Aroma value={beerValues[activeIndex]['aroma']} onPreviousStep={onPreviousStep} onNextStep={onCompletedStep(beer, 'aroma')} visible={idx === (activeIndex * 4) + 1} />
-                        <Flavour value={beerValues[activeIndex]['flavour']} onPreviousStep={onPreviousStep} onNextStep={onCompletedStep(beer, 'flavour')} visible={idx === (activeIndex * 4) + 2} />
-                        <Mouthfeel isFinal={idx === 11} value={beerValues[activeIndex]['mouthfeel']} onPreviousStep={onPreviousStep} onNextStep={onCompletedStep(beer, 'mouthfeel')} visible={idx === (activeIndex * 4) + 3} />
+                        <Appearance value={beerValues[activeIndex]['appearance']} onPreviousStep={onPreviousStep} onNextStep={onCompletedStep(beer, 'appearance')} visible={idx === (activeIndex * 5)} />
+                        <Aroma value={beerValues[activeIndex]['aroma']} onPreviousStep={onPreviousStep} onNextStep={onCompletedStep(beer, 'aroma')} visible={idx === (activeIndex * 5) + 1} />
+                        <Flavour value={beerValues[activeIndex]['flavour']} onPreviousStep={onPreviousStep} onNextStep={onCompletedStep(beer, 'flavour')} visible={idx === (activeIndex * 5) + 2} />
+                        <Mouthfeel isFinal={idx === 11} value={beerValues[activeIndex]['mouthfeel']} onPreviousStep={onPreviousStep} onNextStep={onCompletedStep(beer, 'mouthfeel')} visible={idx === (activeIndex * 5) + 3} />
+                        <NewBeer onPreviousStep={onPreviousStep} onNextStep={() => setActiveStep(activeStep + 1)} nth={getNth(activeIndex)} visible={idx === (activeIndex * 5) + 4} />
                     </div>
                 );
             })}
 
-            <Finished onPreviousStep={onPreviousStep} visible={activeStep === 13} />
+            <Finished onPreviousStep={onPreviousStep} visible={activeStep === 16} />
 
         </div>
     );
