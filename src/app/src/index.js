@@ -47,10 +47,10 @@ const App = () => {
 
                 return (
                     <div key={beer}>
-                        <Appearance value={beerValues[activeIndex]['appearance']} onNextStep={onCompletedStep(beer, 'appearance')} visible={idx === 0 + activeIndex * 3} />
-                        <Aroma value={beerValues[activeIndex]['aroma']} onNextStep={onCompletedStep(beer, 'aroma')} visible={idx === 1 + activeIndex * 3} />
-                        <Flavour value={beerValues[activeIndex]['flavour']} onNextStep={onCompletedStep(beer, 'flavour')} visible={idx === 2 + activeIndex * 3} />
-                        <Mouthfeel value={beerValues[activeIndex]['mouthfeel']} onNextStep={onCompletedStep(beer, 'mouthfeel')} visible={idx === 3 + activeIndex * 3} />
+                        <Appearance value={beerValues[activeIndex]['appearance']} onNextStep={onCompletedStep(beer, 'appearance')} visible={idx === (activeIndex * 4)} />
+                        <Aroma value={beerValues[activeIndex]['aroma']} onNextStep={onCompletedStep(beer, 'aroma')} visible={idx === (activeIndex * 4) + 1} />
+                        <Flavour value={beerValues[activeIndex]['flavour']} onNextStep={onCompletedStep(beer, 'flavour')} visible={idx === (activeIndex * 4) + 2} />
+                        <Mouthfeel value={beerValues[activeIndex]['mouthfeel']} onNextStep={onCompletedStep(beer, 'mouthfeel')} visible={idx === (activeIndex * 4) + 3} />
                     </div>
                 );
             })}

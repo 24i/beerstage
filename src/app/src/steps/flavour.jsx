@@ -12,7 +12,9 @@ export default ({
         return null;
     }
 
-    const [ flavours, setFlavours ] = useState([]);
+    const [ intensity, setIntensity ] = useState(value.intensity ?? 50);
+    const [ balance, setBalance ] = useState(value.balance ?? 50);
+    const [ flavours, setFlavours ] = useState(value.flavours ?? []);
     const onFlavoursKeyDown = e => {
         if (e.keyCode === 13) {
             const updatedFlavours = [ ...flavours, e.target.value ];
@@ -26,6 +28,7 @@ export default ({
         setFlavours(flavours.filter(item => item !== flavour));
     }
 
+    const onNext = () => { onNextStep({ intensity, balance, flavours }); };
 
     return (
         <div>
@@ -40,7 +43,7 @@ export default ({
                     <div>Faint</div>
                     <div className='text-right'>Strong</div>
                 </div>
-                <input type='range' min='0' max='100' className='w-full range range-primary range-xs' />
+                <input value={intensity} onChange={e => setIntensity(parseInt(e.target.value, 10))} type='range' min='0' max='100' className='w-full range range-primary range-xs' />
             </div>
 
             <div className='mb-4'>
@@ -49,7 +52,7 @@ export default ({
                     <div>Sweet</div>
                     <div className='text-right'>Bitter</div>
                 </div>
-                <input type='range' min='0' max='100' className='w-full range range-primary range-xs' />
+                <input value={balance} onChange={e => setBalance(parseInt(e.target.value, 10))} type='range' min='0' max='100' className='w-full range range-primary range-xs' />
             </div>
 
             <div className='mb-4'>
@@ -72,7 +75,7 @@ export default ({
             </div>
 
             <div>
-                <button className='btn btn-primary btn-block rounded-full'>Next</button>
+                <button className='btn btn-primary btn-block rounded-full' onClick={onNext}>Next</button>
             </div>
 
         </div>
