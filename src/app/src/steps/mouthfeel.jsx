@@ -12,13 +12,15 @@ export default ({
         return null;
     }
 
-    const [ sensations, setSensations ] = useState([]);
+    const [ body, setBody ] = useState(value.body ?? 50);
+    const [ carbonation, setCarbonation ] = useState(value.carbonation ?? 50);
+    const [ sensations, setSensations ] = useState(value.sensation ?? []);
     const onSensationsKeyDown = e => {
         if (e.keyCode === 13) {
             const updatedSensations = [ ...sensations, e.target.value ];
 
             e.target.value = '';
-            setSensations(updatedAromas);
+            setSensations(updatedSensations);
         }
     }
 
@@ -26,6 +28,7 @@ export default ({
         setSensations(sensations.filter(item => item !== sensation));
     }
 
+    const onNext = () => { onNextStep({ body, carbonation, sensations })};
 
     return (
         <div>
@@ -41,7 +44,7 @@ export default ({
                     <div className='text-center'>Medium</div>
                     <div className='text-right'>Full</div>
                 </div>
-                <input type='range' min='0' max='100' className='w-full range range-primary range-xs' />
+                <input value={body} onChange={e => setBody(parseInt(e.target.value, 10))} type='range' min='0' max='100' className='w-full range range-primary range-xs' />
             </div>
 
             <div className='mb-4'>
@@ -51,7 +54,7 @@ export default ({
                     <div className='text-center'>Lively</div>
                     <div className='text-right'>Excessive</div>
                 </div>
-                <input type='range' min='0' max='100' className='w-full range range-primary range-xs' />
+                <input value={carbonation} onChange={e => setCarbonation(parseInt(e.target.value, 10))} type='range' min='0' max='100' className='w-full range range-primary range-xs' />
             </div>
 
 
@@ -64,7 +67,7 @@ export default ({
             </div>
 
             <div>
-                <button className='btn btn-primary btn-block rounded-full'>Next</button>
+                <button className='btn btn-primary btn-block rounded-full' onClick={onNext}>Next</button>
             </div>
 
         </div>
