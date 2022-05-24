@@ -17,7 +17,7 @@ const App = () => {
 
     const [ activeStep, setActiveStep ] = useState(0);
     const [ beerValues, setBeerValues ] = useState(get('beers', [{},{},{}]));
-    const [ registerValues, setRegisterValues ] = useState(get('user', {}));
+    const [ user, setUser ] = useState(get('user', {}));
 
     const id = get('id');
     if (!id) {
@@ -25,7 +25,7 @@ const App = () => {
     }
 
     const onCompletedRegister = values => {
-        setRegisterValues(values);
+        setUser(values);
         setActiveStep(activeStep + 1);
         set('user', values);
     }
@@ -44,12 +44,12 @@ const App = () => {
 
     // We're on the finish page, send all data to the API
     if (activeStep === 13) {
-        // TODO
+        
     }
 
     return (
         <div className='container mx-auto py-4'>
-            <Register visible={activeStep === 0} value={registerValues} onNextStep={onCompletedRegister} />
+            <Register visible={activeStep === 0} value={user} onNextStep={onCompletedRegister} />
 
             {beers.map((beer, activeIndex) => {
 
