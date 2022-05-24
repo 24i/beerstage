@@ -4,15 +4,22 @@ import srmColors from '../utils/srm';
 
 export default ({
     onNextStep,
-    value = {}
+    value = {},
+    visible = false
 }) => {
 
-    const [ colour, setColour ] = useState(10);
-    const onChangeColour = e => setColour(e.target.value);
+    if (!visible) {
+        return null;
+    }
 
+    const [ colour, setColour ] = useState(10);
+    const [ clarity, setClarity ] = useState(50);
+    const [ retention, setRetention ] = useState(50);
 
     const srmColor = new ColorTranslator(srmColors[colour]);
     const colourSliderBackground = `${srmColor.H} ${srmColor.S}% ${srmColor.L}%`;
+
+    const onNext = () => onNextStep({ colour, clarity, retention });
 
 
     return (
@@ -24,7 +31,7 @@ export default ({
 
             <div className='mb-4'>
                 <label className='block w-full text-md text-white pb-2'>Colour:</label>
-                <input type='range' min='0' max='40' value={colour} className='w-full range range-primary range-lg h-8' onChange={onChangeColour} style={{'--range-shdw': colourSliderBackground}} />
+                <input type='range' min='0' max='40' value={colour} className='w-full range range-primary range-lg h-8' onChange={e => setColour(parseInt(e.target.value, 10))} style={{'--range-shdw': colourSliderBackground}} />
             </div>
 
             <div className='mb-4'>
@@ -34,7 +41,7 @@ export default ({
                     <div className='text-center'>Dull</div>
                     <div className='text-right'>Cloudy</div>
                 </div>
-                <input type='range' min='0' max='100' className='w-full range range-primary range-xs' />
+                <input value={clarity} onChange={e => setClarity(parseInt(e.target.value, 10))} type='range' min='0' max='100' className='w-full range range-primary range-xs' />
             </div>
 
             <div className='mb-8'>
@@ -44,11 +51,11 @@ export default ({
                     <div className='text-center'>Good</div>
                     <div className='text-right'>Persistent</div>
                 </div>
-                <input type='range' min='0' max='100' className='w-full range range-primary range-xs' />
+                <input value={retention} onChange={e => setRetention(parseInt(e.target.value, 10))} type='range' min='0' max='100' className='w-full range range-primary range-xs' />
             </div>
 
             <div>
-                <button className='btn btn-primary btn-block rounded-full'>Next</button>
+                <button className='btn btn-primary btn-block rounded-full' onClick={onNext}>Next</button>
             </div>
 
         </div>

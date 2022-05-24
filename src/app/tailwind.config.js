@@ -13,7 +13,9 @@ module.exports = {
         themes: [
             {
                 custom: {
-                    primary: '#fbbc0a'
+                    'primary': '#fbbc0a',
+                    'secondary': '#4a4b4c',
+                    'base-100': '#2a2a2a'
                 }
             }
         ]

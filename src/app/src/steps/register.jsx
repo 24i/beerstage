@@ -3,8 +3,13 @@ import beerStyles from '../utils/styles';
 
 export default ({
     onNextStep,
-    value = {}
+    value = {},
+    visible = false
 }) => {
+
+    if (!visible) {
+        return null;
+    }
 
     const [ name, setName ] = useState(value.name ?? '');
     const [ favoriteStyle, setFavoriteStyle ] = useState(value.favoriteStyle ?? '');
