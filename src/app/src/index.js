@@ -7,6 +7,7 @@ import Appearance from './steps/appearance';
 import Aroma from './steps/aroma';
 import Flavour from './steps/flavour';
 import Mouthfeel from './steps/mouthfeel';
+import Finished from './steps/finished';
 
 import { get, set} from './utils/storage';
 
@@ -41,9 +42,13 @@ const App = () => {
         }
     }
 
+    // We're on the finish page, send all data to the API
+    if (activeStep === 13) {
+        // TODO
+    }
+
     return (
         <div className='container mx-auto py-4'>
-
             <Register visible={activeStep === 0} value={registerValues} onNextStep={onCompletedRegister} />
 
             {beers.map((beer, activeIndex) => {
@@ -60,6 +65,8 @@ const App = () => {
                     </div>
                 );
             })}
+
+            <Finished visible={activeStep === 13} />
 
         </div>
     );
