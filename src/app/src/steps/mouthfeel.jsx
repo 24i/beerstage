@@ -5,7 +5,8 @@ const Close = props => <svg {...props} xmlns="http://www.w3.org/2000/svg" fill="
 export default ({
     onNextStep,
     value = {},
-    visible = false
+    visible = false,
+    isFinal = false
 }) => {
 
     if (!visible) {
@@ -67,7 +68,7 @@ export default ({
             </div>
 
             <div>
-                <button className='btn btn-primary btn-block rounded-full' onClick={onNext}>Next</button>
+                <button className='btn btn-primary btn-block rounded-full' onClick={onNext}>{isFinal ? 'Finish' : 'Next' }</button>
             </div>
 
         </div>

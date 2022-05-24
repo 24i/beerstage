@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
+import { v4 as uuidv4 } from 'uuid';
 
 import Register from './steps/register';
 import Appearance from './steps/appearance';
@@ -16,6 +17,11 @@ const App = () => {
     const [ activeStep, setActiveStep ] = useState(0);
     const [ beerValues, setBeerValues ] = useState(get('beers', [{},{},{}]));
     const [ registerValues, setRegisterValues ] = useState(get('user', {}));
+
+    const id = get('id');
+    if (!id) {
+        set('id', uuidv4());
+    }
 
     const onCompletedRegister = values => {
         setRegisterValues(values);
@@ -50,7 +56,7 @@ const App = () => {
                         <Appearance value={beerValues[activeIndex]['appearance']} onNextStep={onCompletedStep(beer, 'appearance')} visible={idx === (activeIndex * 4)} />
                         <Aroma value={beerValues[activeIndex]['aroma']} onNextStep={onCompletedStep(beer, 'aroma')} visible={idx === (activeIndex * 4) + 1} />
                         <Flavour value={beerValues[activeIndex]['flavour']} onNextStep={onCompletedStep(beer, 'flavour')} visible={idx === (activeIndex * 4) + 2} />
-                        <Mouthfeel value={beerValues[activeIndex]['mouthfeel']} onNextStep={onCompletedStep(beer, 'mouthfeel')} visible={idx === (activeIndex * 4) + 3} />
+                        <Mouthfeel isFinal={idx === 11} value={beerValues[activeIndex]['mouthfeel']} onNextStep={onCompletedStep(beer, 'mouthfeel')} visible={idx === (activeIndex * 4) + 3} />
                     </div>
                 );
             })}
