@@ -12,9 +12,9 @@ export default ({
         return null;
     }
 
-    const [ colour, setColour ] = useState(10);
-    const [ clarity, setClarity ] = useState(50);
-    const [ retention, setRetention ] = useState(50);
+    const [ colour, setColour ] = useState(value.colour ?? 10);
+    const [ clarity, setClarity ] = useState(value.clarity ?? 50);
+    const [ retention, setRetention ] = useState(value.retention ?? 50);
 
     const srmColor = new ColorTranslator(srmColors[colour]);
     const colourSliderBackground = `${srmColor.H} ${srmColor.S}% ${srmColor.L}%`;
