@@ -4,6 +4,7 @@ import srmColors from '../utils/srm';
 
 export default ({
     onNextStep,
+    onPreviousStep,
     value = {},
     visible = false
 }) => {
@@ -26,7 +27,7 @@ export default ({
         <div>
 
             <div className='mb-4'>
-                <h2 className='text-4xl font-bold text-xl text-white'>Appearance</h2>
+                <h2 className='text-4xl font-bold text-4xl text-white text-center'><button onClick={onPreviousStep} className='float-left absolute block'>&#8249;</button>Appearance</h2>
             </div>
 
             <div className='mb-4'>

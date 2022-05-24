@@ -4,6 +4,7 @@ const Close = props => <svg {...props} xmlns="http://www.w3.org/2000/svg" fill="
 
 export default ({
     onNextStep,
+    onPreviousStep,
     value = {},
     visible = false
 }) => {
@@ -34,7 +35,7 @@ export default ({
         <div>
 
             <div className='mb-4'>
-                <h2 className='text-4xl font-bold text-xl text-white'>Flavour</h2>
+                <h2 className='text-4xl font-bold text-4xl text-white text-center'><button onClick={onPreviousStep} className='float-left absolute block'>&#8249;</button>Flavour</h2>
             </div>
 
             <div className='mb-4'>

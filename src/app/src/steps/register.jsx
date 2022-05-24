@@ -12,6 +12,7 @@ export default ({
     }
 
     const [ name, setName ] = useState(value.name ?? '');
+    const [ email, setEmail ] = useState(value.email ?? '');
     const [ favoriteStyle, setFavoriteStyle ] = useState(value.favoriteStyle ?? '');
     const [ alcoholic, setAlcoholic ] = useState(true);
 
@@ -23,17 +24,23 @@ export default ({
         <div>
 
             <div className='mb-4'>
-                <h2 className='text-4xl font-bold text-xl text-white'>Beer Evaluation</h2>
+                <h2 className='text-4xl font-bold text-white text-center'>Beer Evaluation</h2>
             </div>
 
             <div className='mb-4'>
                 <label className='block w-full font-bold text-xl text-white pb-2'>Your name:</label>
-                <input value={name} className='block w-full text-white rounded-full p-4 px-6' style={{ background: 'rgba(97, 98, 100, 0.6)' }} type="text" onChange={onChangeName} />
+                <input value={name} className='input w-full bg-secondary rounded-full input-lg' type="text" onChange={e => setName(e.target.value)} />
+            </div>
+
+            <div className='mb-4'>
+                <label className='block w-full font-bold text-xl text-white'>Email:</label>
+                <label className='label'><span className='label-text-alt text-white/50'>Optional, but we can send you your results afterwards.</span></label>
+                <input value={email} className='input w-full bg-secondary rounded-full input-lg' type="email" onChange={e => setEmail(e.target.email)} />
             </div>
 
             <div className='mb-4'>
                 <label className='block w-full font-bold text-xl text-white pb-2'>Your favourite beer style:</label>
-                <input list='styles' value={favoriteStyle} type='text' className='block w-full form-select text-white rounded-full p-4 px-6' style={{ background: 'rgba(97, 98, 100, 0.6)' }}  onChange={onChangeFavoriteStyle}  />
+                <input list='styles' value={favoriteStyle} type='text' className='input input-lg w-full bg-secondary rounded-full' onChange={onChangeFavoriteStyle}  />
                 <datalist id='styles'>
                     {beerStyles.map(style => <option key={style} value={style} />)}
                 </datalist>
